@@ -3,13 +3,17 @@
         <div class="col-sm-6">
           <div>
             <h2>Comments</h2>
+            <label>Article ID:</label>
+            <input id="articleid" value="">
+            <label>Article Title:</label>
+            <input id="articletitle">
             <label>User Name:</label>
             <input id="usernameinput">
             <label>Comment Title:</label>
             <input id="titleinput">
             <label>Comment</label>
             <textarea id="commentinput"></textarea>
-            <button type="submit" id="submitcomment">Submit</button>  
+            <button type="submit" id="submitcomment" data-id='{{this._id}}'>Submit</button>  
         </div>
       </div> 
       <div class="col-sm-6">
@@ -19,7 +23,7 @@
             <li id="li-item" style="list-style-type: none" data-id='{{this._id}}'>
             {{#if this.summary}}<p data-id='{{this._id}}'> Title: {{this.title}}</p>{{/if}}
             {{#if this.summary}}<p data-id='{{this._id}}'> Summary: {{this.summary}}</p>{{/if}}
-            {{#if this.summary}}{{#if this.link}}<p> Link: <a href = "http://nytimes.com{{this.link}}" target='_blank'>Click here for the full article.</a></p>{{/if}}{{/if}}
+            {{#if this.summary}}{{#if this.link}}<p> Link: <a href="http://nytimes.com{{this.link}}" target='_blank'>Click here for the full article.</a></p>{{/if}}{{/if}}
             {{/each}}
             </li>
           </ul>
