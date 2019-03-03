@@ -14,7 +14,7 @@ const cheerio = require("cheerio");
 
 // require all models from models folder
 const db = require("./models");
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 //Initialize Express
 const app = express();
@@ -37,7 +37,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 //Connect to the MongoDB
-mongoose.connect("mongodb://localhost/newsblog",{
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/newsblog",{
     useNewUrlParser: true});
 
 //Routes
