@@ -66,34 +66,18 @@ app.get("/scrape", function(req, res){
 
             db.Article.create(result)
                 .then(function(dbArticle){
+                    //view added result
                     console.log(dbArticle);
                 })
                 .catch(function(err){
                     console.log(err);
                 });
         });
-        const scrapemessage = {message: "Scrape complete ya variable"};
-        let type = typeof(scrapemessage);
-        console.log(type);
-        res.render("index", scrapemessage);
+        res.send("Scrape Complete");
     });
 });
 
-//Route for getting all Articles from the db
-app.get("/articles", function(req, res){
-    db.Article.find({})
-
-    .then(function(dbArticles){
-        res.render("index", dbArticles);
-    })
-    .catch(function(err){
-        res.json(err);
-    });
-});
-
-//Route for getting one article by its ID, populating
-//with a note. 
-
+require("./routes/articleRoutes")(app);
 
 //Route for getting the one article that is associated with Note
 

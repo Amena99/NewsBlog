@@ -9,54 +9,19 @@
     <div class="col-sm-12 col-md-9">
       <div class="row">
           <p>this is the index file</p>
-          {{!-- {{#each scrapemessage}} --}}
-          <div>{{dbArticles}}</div>
-          {{!-- {{/each}} --}}
+         <ul id="articles">  
+          
+            {{#each objects}}
+            <li style="list-style-type: none">
+             {{#if this.summary}}<p> Title: {{this.title}}</p>{{/if}}
+             {{#if this.summary}}<p> Summary: {{this.summary}}</p>{{/if}}
+             {{#if this.summary}}{{#if this.link}}<p> Link: <a href = "http://nytimes.com{{this.link}}" target='_blank'>Click here for the full article.</a></p>{{/if}}{{/if}}
+            {{/each}}
+            </li>
+         </ul>
       </div>
     </div>
   </div>
 </div>
-        {{!-- {{#each Articles}}
-      
-        <div class="col-md-4 col-sm-12 mb-3">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{Articles.title}}</h5>
-              <div class="card-text">{{Articles.summary}}</div>
-              <div class="card-text">{{Articles.link}}</div>
-              <div class="text-center">
-                <button data-id={{_id}} class="btn btn-danger mt-4 complete">Complete</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-        {{/each}} --}}
-      {{!-- </div>
-    </div>
 
-    <div class="col-sm-12 col-md-3">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 mb-12 float-right">
-          <div class="card">
-            <div class="card-body text-center">
-              <h5 class="card-title mt-3">Task Progress</h5>
-              <div class="progress">
-                <div id="dynamic" class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
-                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div> --}}
-      {{!-- </div> --}}
-    {{!-- </div> --}}
-
-
-
-  {{!-- </div>
-</div> --}}
-
-<script src="/js/article.js"></script>
+<script src="/js/app.js"></script>
