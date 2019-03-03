@@ -22,8 +22,9 @@ const ArticleSchema = new Schema ({
         type: String,
         required: false
     },
-    //'note' is an object that contains only a Note id
-    //the 'ref' property references the 'Note' model so we can populate with an associated Note
+    //'comments' is an object that contains only a comments id
+    //the 'ref' property references the 'Comment' model so we 
+    //can populate with an associated Comment
     comments:{
         type: Schema.Types.ObjectId,
         ref: "Comment"

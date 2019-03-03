@@ -1,5 +1,4 @@
 var db = require("../models");
-// const mongoose = require("mongoose");
 
 module.exports = function (app) {
    //Route for getting all Articles from the db
@@ -17,5 +16,18 @@ module.exports = function (app) {
     .catch(function(err){
         res.json(err);
     });
+  });
+
+  //Route to get specific article by id and populate
+  //its 'note' field.
+  app.get("/articles/:id", function(req,res){
+    db.Article.findOne({ _id: req.params.id })
+      .populate("note")
+      .then(function(dbArticle){
+        res.json(dbArticle);
+      })
+      .catch(function(err){
+        res.json(err);
+      });
   });
 }

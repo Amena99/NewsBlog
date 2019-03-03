@@ -1,26 +1,31 @@
 <div class="container">
-  <div class="row">
-
-    <div class="col-12 my-3">
-      <h2>This Week's News</h2>
-{{!-- {{currentWeekDay}} --}}
-    </div>
-
-    <div class="col-sm-12 col-md-9">
-      <div class="row">
-          <p>this is the index file</p>
-         <ul id="articles">  
-          
+    <div class="row">
+        <div class="col-sm-6">
+          <div>
+            <h2>Comments</h2>
+            <label>User Name:</label>
+            <input id="usernameinput">
+            <label>Comment Title:</label>
+            <input id="titleinput">
+            <label>Comment</label>
+            <textarea id="commentinput"></textarea>
+            <button type="submit" id="submitcomment">Submit</button>  
+        </div>
+      </div> 
+      <div class="col-sm-6">
+        <h2>This Week's News</h2>
+          <ul id="articles">      
             {{#each objects}}
-            <li style="list-style-type: none">
-             {{#if this.summary}}<p> Title: {{this.title}}</p>{{/if}}
-             {{#if this.summary}}<p> Summary: {{this.summary}}</p>{{/if}}
-             {{#if this.summary}}{{#if this.link}}<p> Link: <a href = "http://nytimes.com{{this.link}}" target='_blank'>Click here for the full article.</a></p>{{/if}}{{/if}}
+            <li id="li-item" style="list-style-type: none" data-id='{{this._id}}'>
+            {{#if this.summary}}<p data-id='{{this._id}}'> Title: {{this.title}}</p>{{/if}}
+            {{#if this.summary}}<p data-id='{{this._id}}'> Summary: {{this.summary}}</p>{{/if}}
+            {{#if this.summary}}{{#if this.link}}<p> Link: <a href = "http://nytimes.com{{this.link}}" target='_blank'>Click here for the full article.</a></p>{{/if}}{{/if}}
             {{/each}}
             </li>
-         </ul>
+          </ul>
       </div>
-    </div>
+
+      
   </div>
 </div>
 
