@@ -10,6 +10,7 @@ $(document).on("click", "p", function() {
     console.log("logging thisId in p click function");
     console.log(thisId);
     $("#articleid").val(thisId);
+    
     //Make an ajax call for the article
     $.ajax({
         method: "GET",
@@ -34,6 +35,7 @@ $(document).on("click", "p", function() {
 $(document).on("click", "#submitcomment", function() {
     //Get ID associated with the article from submit button
     const thisId = $("#articleid").val().trim();
+
     console.log("Logging in the POST method of app.js");
     console.log(thisId);
 
@@ -42,6 +44,7 @@ $(document).on("click", "#submitcomment", function() {
         url: "/articles/" + thisId,
         data: {
             //Value taken from 
+            username: $("#usernameinput").val(),
             title: $("#titleinput").val(),
             body: $("#commentinput").val()
         }
@@ -49,8 +52,12 @@ $(document).on("click", "#submitcomment", function() {
     //Once that is done
     .then(function(data){
         //Log the response
+        console.log("Logging in promise of '/articles/:id' path");
         console.log(data)
         //Empty the notes section
         
     })
+    $("#usernameinput").val(""),  
+    $("#titleinput").val(""),
+    $("#commentinput").val("")
 })
