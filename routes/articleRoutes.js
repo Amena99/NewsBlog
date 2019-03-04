@@ -22,7 +22,7 @@ module.exports = function (app) {
   //its 'note' field.
   app.get("/articles/:id", function(req,res){
     db.Article.findOne({ _id: req.params.id })
-      .populate("note")
+      .populate("comment")
       .then(function(dbArticle){
         res.json(dbArticle);
       })

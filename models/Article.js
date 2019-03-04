@@ -27,7 +27,7 @@ const ArticleSchema = new Schema ({
     //can populate with an associated Comment
     comment:{
         type: Schema.Types.ObjectId,
-        ref: "Comment"
+        ref: "Comments"
     }
 });
 

@@ -78,6 +78,7 @@ app.get("/scrape", function(req, res){
 });
 
 require("./routes/articleRoutes")(app);
+require("./routes/commentRoutes")(app);
 
 //Route for getting the one article that is associated with Note
 
