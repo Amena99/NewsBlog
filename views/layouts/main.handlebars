@@ -7,7 +7,7 @@
   <!-- Import stylesheet -->
  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  {{!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> --}}
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <!--Theme color for browser tab-->
   <meta name="theme-color" content="#eb2a23">
@@ -22,7 +22,7 @@
 <div class="jumbotron">
   <div class="hero-unit-background-image">
     <h1 class="display-4 text-uppercase">Today's News Blog</h1>
-        <a class="btn btn-primary btn-lg" id="scrape" href="#" role="button">SCRAPE TODAY'S NEWS</a>
+        <a class="btn btn-primary btn-lg" id="scrape" role="button" href="#news" onclick="scrape()">SCRAPE TODAY'S NEWS</a>
       </p> 
   </div>
 </div>
@@ -30,7 +30,9 @@
         <hr class="my-4">
       <p class="descrip-text">This website demonstrates effective use of scraping via the 'Cheerio' npm package as well use of MongoDB.</p>
       <p class="lead">
+<div id="news">
   {{{body}}}
+</div>
 </body>
 
 </html>

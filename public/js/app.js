@@ -1,3 +1,19 @@
+// $("#scrape").on("click", function(){
+function scrape () {
+    console.log("scrape click detected");
+    $.ajax({
+        method: "GET",
+        url: "/scrape"
+    })
+    .then(function(data){
+        console.log(data);
+        $.ajax({
+            method: "GET",
+            url: "/"
+        })
+        location.reload(true);
+    })
+};
 
 $(document).on("click", "p", function() {
    
